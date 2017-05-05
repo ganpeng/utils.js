@@ -168,3 +168,18 @@ export const pinyin = (function (){
 	return new Pinyin(arguments);
 })();
 
+
+/***
+ * 获取元素距离文档左侧的距离
+ */
+export function offsetLeft(element) {
+    let el = element;
+    let x = el.offsetLeft;
+
+    while (el.offsetParent) {
+        x += el.offsetParent.offsetLeft;
+        el = el.offsetParent;
+    }
+
+    return x;
+}
